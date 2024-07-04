@@ -15,7 +15,6 @@ spec:
         {{- include "hello-world.selectorLabels" . | nindent 8 }}
       annotations:
         rollme: {{ randAlphaNum 5 | quote }}
-        test: 1
     spec:
       serviceAccountName: {{ include "hello-world.serviceAccountName" . }}
       containers:
