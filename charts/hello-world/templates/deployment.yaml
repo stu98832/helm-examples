@@ -4,8 +4,6 @@ metadata:
   name: {{ include "hello-world.fullname" . }}
   labels:
     {{- include "hello-world.labels" . | nindent 4 }}
-  annotations:
-    rollme: {{ randAlphaNum 5 | quote }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
@@ -15,6 +13,8 @@ spec:
     metadata:
       labels:
         {{- include "hello-world.selectorLabels" . | nindent 8 }}
+      annotations:
+        rollme: {{ randAlphaNum 5 | quote }}
     spec:
       serviceAccountName: {{ include "hello-world.serviceAccountName" . }}
       containers:
